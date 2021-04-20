@@ -1,8 +1,7 @@
 <template>
-  <div class="container d-flex">
-    <div class="card col-12 col-md-6 mx-auto">
-      <div class="card-header">Login</div>
-      <div class="card-body">
+  <div class="login-page d-flex align-items-center bg-dark">
+    <div class="container">
+      <div class="col-12 col-md-4 mx-auto bg-light p-4 rounded">
         <form @submit.prevent="submit">
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label"
@@ -31,10 +30,9 @@
             />
           </div>
 
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-success">Submit</button>
         </form>
       </div>
-      <div class="card-footer text-muted">2 days ago {{ user }}</div>
     </div>
   </div>
 </template>
@@ -43,6 +41,7 @@
 // @ is an alias to /src
 import { reactive, computed } from "vue";
 import Axios from "@/plugins/http/Axios";
+import router from "@/router";
 // import axios from "axios";
 import { useStore } from "vuex";
 
@@ -61,6 +60,7 @@ export default {
 
         store.commit("SET_TOKEN", token);
         store.commit("SET_USER", userData);
+        router.push({ name: "AdminDashboard" });
       } catch (error) {
         console.log("error :>> ", error);
       }
@@ -69,3 +69,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.login-page {
+  min-height: 100vh;
+}
+</style>

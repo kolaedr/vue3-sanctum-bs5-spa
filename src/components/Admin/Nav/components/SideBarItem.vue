@@ -12,7 +12,10 @@
       <i class="fas fa-fw fa-cog"></i>
 
       <span class="d-flex justify-content-between"
-        >{{ nav.title }} <font-awesome-icon :icon="['fas', 'chevron-down']"
+        >{{ nav.title }}
+        <font-awesome-icon
+          v-if="!!nav.children.length"
+          :icon="['fas', 'chevron-down']"
       /></span>
     </a>
     <div

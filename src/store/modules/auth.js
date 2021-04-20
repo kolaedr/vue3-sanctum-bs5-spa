@@ -6,6 +6,7 @@ import {
   LOG_OUT,
   GET_USER,
   GET_TOKEN,
+  SET_CURRENT_SITE,
 } from "@/constants/storeConstants";
 // import axios from "axios";
 // import Axios from "@/plugins/http/Axios";
@@ -16,21 +17,28 @@ const auth = {
   state: {
     token: "",
     user: {
-      name: "",
+      first_name: "Name",
+      last_name: "Last",
     },
     isAdmin: true,
+    currentSite: "ADMIN",
   },
   getters: {
     [GET_USER]: (store) => store.user,
     [GET_TOKEN]: (store) => store.token,
     isAdmin: (store) => store.isAdmin,
+    userFullName: (store) => `${store.user.first_name} ${store.user.last_name}`,
   },
   mutations: {
     [SET_TOKEN]: (store, payload) => (store.token = payload),
     [SET_USER]: (store, payload) => (store.user = payload),
+    [SET_CURRENT_SITE]: (store, payload) => (store.currentSite = payload),
     [LOG_OUT]: (store) => {
       store.token = "";
-      store.user = {};
+      store.user = {
+        first_name: "",
+        last_name: "",
+      };
     },
   },
   actions: {

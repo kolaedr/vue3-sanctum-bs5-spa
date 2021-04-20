@@ -12,11 +12,21 @@ import {
   faBars,
   faChevronDown,
   faChevronUp,
+  faUser,
+  faCogs,
+  faList,
+  faSignOutAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-library.add(faBars);
-library.add(faChevronDown);
-library.add(faChevronUp);
+library.add([
+  faSignOutAlt,
+  faBars,
+  faChevronDown,
+  faChevronUp,
+  faUser,
+  faCogs,
+  faList,
+]);
 
 const app = createApp(App);
 app.config.productionTip = false;

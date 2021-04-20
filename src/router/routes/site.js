@@ -5,6 +5,11 @@ export default [
     path: "/",
     name: "Home",
     component: Home,
+    redirect: () => {
+      // the function receives the target route as the argument
+      // we return a redirect path/location here.
+      return { path: "login" };
+    },
     meta: {
       navbar: true,
     },

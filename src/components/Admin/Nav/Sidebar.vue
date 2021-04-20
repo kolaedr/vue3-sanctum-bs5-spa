@@ -1,23 +1,15 @@
 <template>
-  <aside class="" :class="{ 'aside-visible col-12': isOpen }">
+  <aside class="col-12 col-md-2" :class="[isOpen ? 'd-block' : 'd-none']">
     <ul
       class="list-unstyled bg-gradient-primary sidebar sidebar-dark accordion"
       id="accordionSidebar"
     >
       <!-- Sidebar - Brand -->
-      <a
-        class="sidebar-brand d-flex align-items-center justify-content-center"
-        href="index.html"
-      >
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
-      </a>
+      <SiteBrand />
 
       <!-- Divider -->
-      <hr class="sidebar-divider my-0" />
-
+      <!-- <hr class="sidebar-divider my-0" /> -->
+      <SelectCurrentSite class="d-block d-md-none px-2" />
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
         <a class="nav-link" href="index.html">
@@ -32,13 +24,6 @@
       />
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block" />
-
-      <!-- Sidebar Toggler (Sidebar) -->
-      <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-      </div>
-
-      <!-- Sidebar Message -->
     </ul>
     <!-- End of Sidebar -->
   </aside>
@@ -48,9 +33,12 @@
 import { ref, computed } from "vue";
 import { useStore } from "vuex";
 import SideBarItem from "./components/SideBarItem";
+import SelectCurrentSite from "./components/SelectCurrentSite";
+import SiteBrand from "./components/SiteBrand";
+
 export default {
   name: "Sidebar",
-  components: { SideBarItem },
+  components: { SideBarItem, SelectCurrentSite, SiteBrand },
   setup() {
     const store = useStore();
     const navData = ref([
@@ -90,20 +78,20 @@ export default {
 
 <style lang="scss">
 aside {
-  width: 0;
+  width: 14rem;
   min-height: 100vh;
 
-  &.aside-visible {
-    width: 14rem;
+  // &.aside-visible {
+  //   width: 14rem;
 
-    @media screen and (max-width: 786px) {
-      position: absolute;
-      z-index: 9999;
-      top: 5rem;
-      bottom: 0;
-      width: 100%;
-    }
-  }
+  //   @media screen and (max-width: 786px) {
+  //     position: absolute;
+  //     z-index: 9999;
+  //     top: 5rem;
+  //     bottom: 0;
+  //     width: 100%;
+  //   }
+  // }
 }
 .sidebar {
   height: 100%;

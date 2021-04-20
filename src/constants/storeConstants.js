@@ -6,3 +6,4 @@ export const GET_TOKEN = "GET_TOKEN";
 export const LOG_OUT = "LOG_OUT";
 export const LOGIN_REQUEST = "LOGIN_REQUEST";
 export const USER_REQUEST = "USER_REQUEST";
+export const SET_CURRENT_SITE = "SET_CURRENT_SITE";
