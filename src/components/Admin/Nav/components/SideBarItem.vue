@@ -49,7 +49,7 @@ export default {
 </script>
 
 <style lang="scss">
-.nav-link[aria-expanded="true"] span>svg {
+.nav-link[aria-expanded="true"] span > svg {
   transform: rotate(-180deg);
 }
 .collapse {

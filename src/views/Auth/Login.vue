@@ -39,21 +39,23 @@
 // @ is an alias to /src
 import { reactive } from "vue";
 // import Axios from '@/plugins/http/Axios';
-import axios from 'axios';
-import { useStore } from 'vuex'
+import axios from "axios";
+import { useStore } from "vuex";
 
 export default {
   name: "Login",
   setup() {
-    const store = useStore()
-    console.log('Login store :>> ', store);
+    const store = useStore();
     const fd = reactive({
       login: "",
       password: "",
     });
     const submit = async () => {
-      const {data} = await axios.post("https://testroom3.academweb.tech/api/login", fd);
-      console.log('data :>> ', data);
+      const { data } = await axios.post(
+        "https://testroom3.academweb.tech/api/login",
+        fd
+      );
+      console.log("data :>> ", data);
     };
     return { fd, submit };
   },
