@@ -4,16 +4,15 @@ import store from "../../store";
 
 // axios.defaults.headers.common["Authorization"] = AUTH_TOKEN;
 
-
-const token = store.getters.GET_TOKEN;
-
-axios.defaults.headers.common = { Authorization: `Bearer ${token}` };
-
 const Axios = axios.create({
-  baseURL: "https://testroom3.academweb.tech/public/api/",
+  baseURL: "https://testroom3.academweb.tech/api/",
 });
 
 Axios.interceptors.request.use((request) => {
+  const token = store.getters.GET_TOKEN;
+  if (token) {
+    axios.defaults.headers.common = { Authorization: `Bearer ${token}` };
+  }
   // URLs unto whom don't need to add customer_id to request data
   const exceptedEndpoints = ["/api/"];
 

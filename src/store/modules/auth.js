@@ -14,9 +14,9 @@ const auth = {
   namespace: true,
 
   state: {
-    token: "sdfsdfg47h74j74h47",
+    token: "",
     user: {
-      name: 'sgs'
+      name: "",
     },
     isAdmin: true,
   },
@@ -27,7 +27,7 @@ const auth = {
   },
   mutations: {
     [SET_TOKEN]: (store, payload) => (store.token = payload),
-    [SET_USER]: (store, payload) => (store.token = payload),
+    [SET_USER]: (store, payload) => (store.user = payload),
     [LOG_OUT]: (store) => {
       store.token = "";
       store.user = {};
