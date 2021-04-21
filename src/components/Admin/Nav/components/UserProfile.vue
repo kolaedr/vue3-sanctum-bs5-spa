@@ -17,7 +17,7 @@
     </div>
     <!-- Dropdown - User Information -->
     <div
-      class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+      class="dropdown-menu dropdown-menu-end shadow animated--grow-in"
       aria-labelledby="dropdownMenuButton1"
     >
       <a class="dropdown-item" href="#">

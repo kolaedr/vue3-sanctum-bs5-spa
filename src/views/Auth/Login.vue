@@ -1,7 +1,7 @@
 <template>
   <div class="login-page d-flex align-items-center bg-dark">
     <div class="container">
-      <div class="col-12 col-md-4 mx-auto bg-light p-4 rounded">
+      <div class="col-12 col-md-4 mx-auto bg-light p-4 rounded shadow">
         <form @submit.prevent="submit">
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label"

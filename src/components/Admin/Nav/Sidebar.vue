@@ -1,21 +1,21 @@
 <template>
   <aside class="col-12 col-md-2" :class="[isOpen ? 'd-block' : 'd-none']">
     <ul
-      class="list-unstyled bg-gradient-primary sidebar sidebar-dark accordion"
+      class="list-unstyled bg-dark sidebar sidebar-dark accordion"
       id="accordionSidebar"
     >
       <!-- Sidebar - Brand -->
-      <SiteBrand />
+      <SiteBrand toggle />
 
       <!-- Divider -->
       <!-- <hr class="sidebar-divider my-0" /> -->
       <SelectCurrentSite class="d-block d-md-none px-2" />
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <router-link :to="{ name: 'Dashboard' }" class="nav-link">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a
-        >
+          <span>Dashboard</span>
+        </router-link>
       </li>
       <SideBarItem
         v-for="navItem in navData"

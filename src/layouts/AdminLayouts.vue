@@ -2,7 +2,7 @@
   <section class="wrapper">
     <Sidebar />
     <Main>
-      <slot></slot>
+      <router-view></router-view>
     </Main>
   </section>
 </template>

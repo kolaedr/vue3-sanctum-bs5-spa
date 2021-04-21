@@ -2,15 +2,15 @@
   <main class="col wrapper-content">
     <Navbar />
     <section>
-      <div class="card mx-4 ">
+      <!-- <div class="card mx-4 ">
         <div class="card-header text-dark bg-light text-start">
           Featured
         </div>
         <div class="card-body">
           <router-view></router-view>
         </div>
-      </div>
-      
+      </div> -->
+      <router-view></router-view>
     </section>
     <Footer />
   </main>

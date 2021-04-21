@@ -4,10 +4,11 @@
   >
     <router-link
       :to="{ name: 'AdminDashboard' }"
-      class="fs-3 text-decoration-none text-white py-2 fw-bolder d-block"
+      class="fs-3 text-decoration-none py-2 fw-bolder d-block"
+      :class="`text-${color}`"
       >{{ brand }}</router-link
     >
-    <ToggleSidebar class="d-md-none" color="light" />
+    <ToggleSidebar v-if="toggle" class="d-md-none" color="light" />
   </div>
 </template>
 
@@ -17,6 +18,29 @@ import { useStore } from "vuex";
 import ToggleSidebar from "./ToggleSidebar";
 
 export default {
+  props: {
+    toggle: {
+      type: Boolean,
+      default: false,
+    },
+    color: {
+      type: String,
+      default: "white",
+      validator: function (value) {
+        return (
+          [
+            "white",
+            "light",
+            "success",
+            "warning",
+            "danger",
+            "secondary",
+            "primary",
+          ].indexOf(value) !== -1
+        );
+      },
+    }
+  },
   components: { ToggleSidebar },
   setup() {
     const store = useStore();
